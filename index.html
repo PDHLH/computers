@@ -207,21 +207,37 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Basiskennis</li>
+
+<li>Datatypes</li>
+
+<li>Datum en Tijd-waarden</li>
+
+<li>Formules</li>
+
 <li>Hoe maak ik nieuwe template wiki met knop</li>
 
 <li>Home</li>
 
 <li>Iets over copyright en aansprakelijkheid</li>
 
+<li>Numerieke waarden</li>
+
 <li>PDHLH</li>
+
+<li>Rijen - Kolommen - Cellen - Ranges</li>
 
 <li>Saven van eenTiddlyWiki</li>
 
 <li>Spreadsheets</li>
 
+<li>Tekst</li>
+
 <li>TiddlyWiki</li>
 
 <li>Tiddlywiki en Github - saven</li>
+
+<li>Wildcards</li>
 
 </ul>
 </p>
@@ -10131,7 +10147,15 @@ Error message and password prompt
 </div>
 <div status="complete" title="$:/Import">
 <pre>De volgende tiddlers werden geïmporteerd:
-</pre>
+
+# [[Basiskennis]]
+# [[Datatypes]]
+# [[Formules]]
+# [[Numerieke waarden]]
+# [[Datum en Tijd-waarden]]
+# [[Tekst]]
+# [[Rijen - Kolommen - Cellen - Ranges]]
+# [[Wildcards]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -14889,7 +14913,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div list="Spreadsheets" title="$:/StoryList">
+<div list="$:/Import Spreadsheets" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -15326,6 +15350,31 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20200925120226864" modified="20200925120447736" tags="Inhoud" title="Basiskennis">
+<pre>Een korte introductie in zechte basiskennis van spreadsheets.
+
+&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'Basiskennis' sort[title]&gt;&gt;
+&lt;/div&gt;</pre>
+</div>
+<div created="20200925130321079" modified="20200925131409201" tags="Basiskennis" title="Datatypes">
+<pre>Elke cel kan volgende soorten data bevatten:
+
+&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'Datatypes' sort[title]&gt;&gt;
+&lt;/div&gt;
+</pre>
+</div>
+<div created="20200925131319592" modified="20200925131710656" tags="[[Numerieke waarden]]" title="Datum en Tijd-waarden">
+<pre>Datum en tijd waarden worden achterliggend in een spreadsheet als getallen opgelsagen. &lt;br&gt;
+Hierdoor kun je er gemakkelijk bewerkingen mee doen zoals twee datums optellen of aftrekken bijvoorbeeld.</pre>
+</div>
+<div created="20200925130817091" modified="20200925131124912" tags="Datatypes" title="Formules">
+<pre>Formules zijn wat een spreadsheet een spreadsheet maken.
+
+Formules gebruiken [[numerieke waardes|Numerieke waarden]] of [[tekst|Tekst]] uit andere cellen om daar bewerkingen mee te doen.&lt;br&gt;
+Het resultaat van deze bewerking krijgen we te zien in de cel waar de formule instaat.</pre>
+</div>
 <div created="20170102114322386" creator="twee" modified="20210216095443788" modifier="PDHLH" tags="TiddlyWiki" title="Hoe maak ik nieuwe template wiki met knop">
 <pre>!Maak een template (begin met $:/)
 
@@ -15423,17 +15472,70 @@ Het gebruik dat u maakt van de handleidingen, tips en bestanden die u aantreft o
 
 In geen enkel opzicht kan ik aansprakelijk worden gesteld voor schade of gevolgschade van welke aard dan ook, die optreedt als gevolg van genoemd gebruik. Dit geldt ook wanneer ik een fout heb gemaakt in een handleiding, welke de oorzaak is van schade.</pre>
 </div>
+<div created="20200925130549944" modified="20200925131312592" tags="Datatypes" title="Numerieke waarden">
+<pre>Numerieke waarden zijn getallen.
+
+Vaak zijn dit getallen waar je iets mee wilt doen.</pre>
+</div>
 <div created="20210216093409326" creator="PDHLH" modified="20210216093412977" modifier="PDHLH" title="PDHLH">
 <pre>Dat ben ik</pre>
+</div>
+<div created="20200925120508611" modified="20200925122938534" tags="Basiskennis" title="Rijen - Kolommen - Cellen - Ranges">
+<pre>In een spreadsheet heeft //alle data een locatie//.&lt;br&gt;
+Deze duiden we aan door te verwijzen naar een ''cel''.&lt;br&gt;
+Een celverwijzing duiden we aan door te verwijzen naar de rij en de kolom van de cel.
+
+De ''kolom'' is de verticale positie van een cel en duiden we aan met letters.&lt;br&gt;
+Een ''rij'' is de horizontale positie van een cel en duiden we aan met cijfers.
+
+||A|B|C|D|E|F|G|H|I|J|
+|1| | | | | | | | | | |
+|2| | |X| | | | | | | |
+|3| | | | | | | | | | |
+|4| | | | | | | | | | |
+|5| | | | | | | | | | |
+|6| | | | | |O| | | | |
+|7| | | | | | | | | | |
+|8| | | | | | | | | |Z|
+|9| | | | | | | | | | |
+
+De X staat in bovenstaand voorbeeld in cel C2, de O in cel F6 en de Z in cel J8.
+
+
+We spreken vaak ook over ''ranges''.&lt;br&gt;
+Ranges zijn een verzameling van cellen. Deze zijn altijd een aaneengesloten rechthoek van cellen. &lt;br&gt;
+We definiëren deze door te verwijzen naar twee cellen gescheiden door een dubbelpunt : &lt;br&gt;
+Voor het dubbelpunt zetten we de waarde van de cel linksbovenaan, na het dubbelpunt de waarde van de cel rechts onderaan.
+
+Range C2:H5 komt bijvoorbeeld overeen met alle cellen met een X in onderstaand voorbeeld:
+
+||A|B|C|D|E|F|G|H|I|J|
+|1| | | | | | | | | | |
+|2| | |X|X|X|X|X|X| | |
+|3| | |X|X|X|X|X|X| | |
+|4| | |X|X|X|X|X|X| | |
+|5| | |X|X|X|X|X|X| | |
+|6| | | | | | | | | | |
+|7| | | | | | | | | | |
+|8| | | | | | | | | | |
+|9| | | | | | | | | | |
+</pre>
 </div>
 <div created="20210216095025524" creator="PDHLH" modified="20210216095118875" modifier="PDHLH" tags="TiddlyWiki" title="Saven van eenTiddlyWiki">
 <pre>Dit kan [[online (zoals deze site) via Github|Tiddlywiki en Github - saven]]</pre>
 </div>
-<div created="20210216101153293" creator="PDHLH" modified="20210216101415945" modifier="PDHLH" tags="Home" title="Spreadsheets">
+<div created="20210216101153293" creator="PDHLH" modified="20210216101423761" modifier="PDHLH" tags="Home" title="Spreadsheets">
 <pre>Spreadsheets zijn programma's zoals Excel, Google Sheets en Libreoffice Calc. &lt;br&gt;
 Handig om grote aantal (cijfer)gegevens bij te houden, te bewerken en er vanalles mee te doen.
 
+---
+
 &lt;&lt;list-links filter:&quot;[tag&lt;currentTiddler&gt;] +[sort[title]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20200925130643417" modified="20200925130725948" tags="Datatypes" title="Tekst">
+<pre>Veel spreadsheets bevatten cellen met tekst.
+
+Deze worden vaak gebruikt om duiding te geven aan cellen met numerieke waarde in de buurt.</pre>
 </div>
 <div created="20210216094657755" creator="PDHLH" modified="20210216094933852" modifier="PDHLH" tags="Home" title="TiddlyWiki">
 <pre>Deze site is gemaakt met TiddlyWiki. &lt;br&gt;
@@ -15448,6 +15550,10 @@ TiddlyWiki is een wiki (denk [[Wikipedia|https://nl.wikipedia.org/wiki/Hoofdpagi
 <pre>TiddlyWiki's kun je als een website gebruiken door ze via [[Github Pages|https://pages.github.com/]] te hosten. &lt;br&gt;
 Je kan zelfs je Tiddlywiki direct in je browser aanpassen en de wijzigingen worden direct opgeslagen.
 </pre>
+</div>
+<div created="20201009114942582" modified="20201009115111229" tags="Basiskennis" title="Wildcards">
+<pre>? staat voor 1 karakter &lt;br&gt;
+* staat voor nul, een of meerdere karakters</pre>
 </div>
 
 
