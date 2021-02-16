@@ -355,6 +355,8 @@ Error message and password prompt
 
 <li>WISSEN.CONTROL</li>
 
+<li>Zeer beknopte uitleg van SQL</li>
+
 <li>Zoeken met INDEX en VERGELIJKEN</li>
 
 </ul>
@@ -15509,7 +15511,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div list="Home SQL" title="$:/StoryList">
+<div created="20210216104003146" creator="PDHLH" list="Home SQL [[Zeer beknopte uitleg van SQL]]" modified="20210216104003146" modifier="PDHLH" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -16750,6 +16752,561 @@ https://support.microsoft.com/nl-nl/office/vind-alles-vind-alles-b-functie-c7912
 engels clean()
 
 gebruiken we om vreemde karakters uit een tekst te halen, vooral nuttig als we data uit een externe bron moeten halen.</pre>
+</div>
+<div created="20210216104008221" creator="PDHLH" modified="20210216104024635" modifier="PDHLH" tags="SQL" title="Zeer beknopte uitleg van SQL" type="text/plain">
+<pre>----------------------------------------
+----------------------------------------
+--Eerst iets over relationele databank--
+----------------------------------------
+----------------------------------------
+
+WAT IS HET?
+Het zijn gegevens in een tabel.
+Het vertelt ons iets over dingen (vb. mens, lokaal)
+En eigenschappen van dingen (naam, verantwoordelijke locatie)
+Maar wat het verschil er tussen is, is een redelijk vage grens.
+
+HOE TABEL LEZEN?
+Rij het bestaat (existentie)
+Rij: beschrijvend
+     * Alleen placeholder in tabel
+     * Om goed te lezen moet je de achterliggende zin kennen
+
+Tabel gaat over 1 ding
+Kolom eigenschappen
+Rij 1 uniek exemplaar
+
+TABELKENMERKEN
+     * Unieke naam (cfr. bestanden in mappen op je harde schijf)
+     * 1 of meer kolommen
+     * Nul of meer rijen
+     * Kolom heeft unieke naam
+     * Kolom heeft gegevenstype of geen waarde
+          Geen waarde is een NULL value
+          Een lege string =/= niets (NULL)
+     * Volgorde rijen, kolommen is niet belangrijk
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+HOE WORDT EEN SELECT-STATEMENT UITGEVOERD?
+------------------------------------------
+1  bepaal de resultaattabel van de joins in de FROM-clause
+2  verwijder de rijen die niet voldoen aan de WHERE-clause
+3  maak groepen op basis van de expressies in de GROUP BY-clause
+4  verwijder de rijen die niet voldoen aan de HABING-clause
+5  voor elke rij: bereken de verschillende kolommen in de SELECT-clause
+6  Herhaal 1-5 per elementaire SELECT, en pas de SET OPERATOREN toe
+7 sorteer volgen de specificaties in de ORDER BY-clause
+
+Hoe rekening met subqueries!
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+-------------------------------------
+HOE HAAL IK INFORMATIE UIT 1 TABEL?
+-------------------------------------
+
+SELECT
+------
+Hiermee begin je steeds.
+Na SELECT komt een lijst van KOLOMNAMEN
+gescheiden door KOMMA
+daarna:
+FROM en de naam van de TABEL, waar de kolommen uit moeten komen
+
+dus:
+SELECT kolom1, kolom2, ....
+FROM tabel ;
+
+In de output komen de kolommen te staan in de volgorde zoals
+ze na select staan
+
+SELECT * dan selecteer je alle kolommen
+
+SELECT DISTINCT dan verwijder je volledig dubbele rijen
+
+select-statement is free-format, case insensitive
+pas op: geen afkortingen of splitsingen
+
+zet best minstens 1 spatie na elke komma!
+
+in plaats van kolomnamen kan je ook:
+EXPRESSIES opschrijven
+vb: SELECT kolom1, kolom2*12, ...
+een expressie kan OPGEBOUWD worden uit:
+KOLOMNAMEN
+CONSTANTEN (LITERALS)
+OPERATOREN (BEWERKINGEN)
+een expressie is analoog aan een formule uit excel
+
+NUMERIEKE EXPRESSIES
+Je kan met volgende werken:
+NUMERIEKE KOLOMMEN (kun integer of decimal zijn)
+NUMERIEKE CONSTANTEN (decimaal teken is een punt)
+OPERATOREN: + - * / ( ) (delingen kunnen geheel of reeel zijn!)
+
+TEKST EXPRESSIES (string)
+Je kan met volgende werken:
+TEKSTKOLOMMEN
+TEKSTUELE CONSTANTEN ('jan' '12.5') staan tussen single quotes (case sensetives)
+CONCATENANTIE (???) tussen ||
+
+DATUM EXPRESSIES
+Je kan met volgende werken:
+DATUMKOLOMMEN
+date: eendag
+timestamp: een dag, uur, minuut, seconde, microseconde
+time: urne, minuten, seconden
+CONSTANTEN te schrijven als strings
+CURRENT_DATE
+CURRENT_TIMESTAMP
+REKENEN: + 3 months; - 5 hours
+ 
+NULL VALUES
+niet beschikbaar, onbekend, niet van toepassing, niet ingevuls, ...
+BIJ UITDRUKKING WAAR EEN VAN DE WAARDE NULL IS, IS DE UITKOMS ALTIJD NULL
+je kan NULL waarde converteren naar echte waarde met
+COALESCE of Nz
+vb: select loon*coalesce(pct, 100)
+let op het type!
+
+RESULTAAT van SELECT is STEEDS een TABEL met ALLE KENMERKEN van een tabel
+
+KOLOMALIASSEN
+je kan een kolom een aliasnaam geven in de uitkomst tabel:
+schrijf deze naam met as na de selectie, bij spaties tussen &quot;
+vb: select pipo*12 as &quot;twaalf keer de pipo&quot;
+
+**********************************************************************************
+
+WHERE
+-----
+hiermee kun je je resultaat beperken tot rijen die aan voorwaarden voldoen
+
+Je kunt volgende VERGELIJKINGSOPERATOREN gebruiken:
+=
+&gt;
+&gt;=
+&lt;
+&lt;=
+&lt;&gt;
+between ... and ... (inclusief grenzen)
+in (...,...,...)
+[not] like '...' (jokertejens zijn _ voor een karakter of % (of *) voor nul of meer)
+[not] like '...' escape '...' (na escape kan je 1 karakter opgeven dat betekent geen joker is)
+
+BETWEEN en IN kun je voor alle gegevenstypes gebruiken
+LIKE alleen voor strings
+
+je kan voorwaarden verbinden met
+AND
+OR 
+NOT 
+en haakjes (geen haakjes, AND voorrang)
+
+je kan ook voorwaaarden op niet-geselcteerde kolommen maken
+
+een rij wordt meegenomen als heel de WHERE clausule TRUE is
+
+als het NULL is, is het steeds FALSE
+
+je kan wel ...IS NULL
+of ... IS NOT NULL
+
+opgelet met tekstsorteringen, volgens sommigen
+komen letters voor cijfers
+volgens anderen
+letters na cijfers
+
+
+
+**********************************************************************************
+
+ORDER BY
+--------
+
+normaal is de output niet gessorteerd
+met order by kun je ze sorteren
+
+het is een lijst met kolommen (komma's) waarop gesorteerd moet worden
+default stijgend maar:
+je kan ASC of DESC toevoegen na kolomnaam
+
+je kan ook verwijzen naar kolomnummer
+
+sorteren NULL waarde hangt af van het systeem
+
+sorteerelement moet niet voorkomen bij select
+
+het moet steeds laatst staan
+
+
+**********************************************************************************
+
+scalaire functies
+-----------------
+kunnen gebruikt worden bij select, where en order by
+kunnen genest worden
+zijn standaardfuncties waarmee inhoud kolom bewerkt kan worden
+ze geven een waarde per rij in de resultaattabel
+opzoeken in handboek leverancier!
+
+een aantal veel voorkomende voorbeelden:
+
+tekstfuncties:
+lower(e) converteert e naar kleine letters
+uper(e) converteert e naar hoofdletters
+substr(e,m[,n]) neemt deel van e, vanaf positie m, over lengte n
+lenght(e) geeft de lengte (aantal tekens) van e
+ltrim(e) verwijdert de voorloopspatie van e
+rtrim(e) verwijdert achterloopspatie van e
+
+numerieke:
+round (e [,n])
+trunc(e [,n])
+mod(m,n)
+
+
+conversies
+----------
+gegevenstypes van kolom/expressie kunnen geconverteerd worden naar ander
+gegevenstype
+
+vb CHAR(WEDDE)
+of
+CAST(WEDDE AS CHAR(10))
+
+opgepast met datums!
+
+if-then-else
+------------
+te gebruiken in select
+DECODE functie nodig
+vb:
+decode (job, '1','bezig',
+             '2','wachtende',
+             '3','gedaan',
+                  'onbekend' )
+of via CASE
+case job when '1' then 'bezig',
+         when '2' then 'wachtende',
+         when '3' then 'gedaan',
+         else 'onbekend'
+end
+
+CASE functie is flexibeler, eerste voorwaarde true bepaalt het resultaat
+
+
+**********************************************************************************
+
+GROEPEREN EN GROEPSFUNCTIES
+---------------------------
+statistische functies
+geven 1 waarde per groep van rijen
+
+5 veel voorkomende functies:
+avg (gem; numeriek)
+min (kleinst waarde; numeriek, karakter, datum)
+max (grootste waarde; numeriek, karakter, datum)
+sum (som; numeriek)
+count (aantal rijen; numeriek, karakter, datum)
+
+(ook stddev of variance)
+
+in de output zullen alle rijen vervangen worden door 1 rij
+je kan inneens meerde fties gebruiken, 
+MAAR LET OP deze werken onafhankelijk van elkaar!
+
+
+GROUP BY
+--------
+resultaat in meerdere groepen onderverdelen
+alle rijen met zelfde waarde in kolom beschouwen we als een groep
+je kan groeperen om meer dan een kolom (expressie)
+Je bepaalt ineens ook de default volgorde
+
+
+als je STATISTISCHE FUNCTIE GEBRUIKT, krijg je geen oorspronkelijke rijen meer te zien!
+==&gt; elke uitdrukking in de select-clause moet ofwel een statistische functie zijn, 
+    ofwel voorkomen in de group by-clause
+=&gt; gebruik je zo'n functie zonder group by krijg je slechts 1 rij te zien!
+
+
+EXTRA FILTER OP HET RESULTAAT
+-----------------------------
+op 2 manieren:
+met WHERE
+of
+met HAVING
+
+
+WHERE wordt uitgevoerd VOORDAT er gegroepeerd is.
+er zijn dus GEEN GROEPSFUNCTIES in where-clause toegelaten.
+
+HAVING wordt uitgevoerd NADAT er gegroepeerd is.
+er zijn dus WEL GROEPSFUNCTIES toegelaten.
+
+dus:
+we houden de rijen over die voldoen aan where
+deze worden gegroepeerd
+we krijgen de rijen te zien die aan having voldoen
+
+GROEPSFUNCTIES EN DISTINCT
+--------------------------
+ze kunnen allemaal gebruikt worden met DISTINCT
+houdt dan enkel rekening met alle verschillende waarden
+
+GROEPSFUNCTIES EN NULL WAARDEN
+------------------------------
+alle negeren NULL waarden
+je kan nvl gebruiken om NULL waarde een waarde te geven
+avg(nvl(wedde, 0))
+
+uitzondering:
+count(*) telt alle rijen, ook die met NULL en dubbele waarden
+count(expr) telt enkel indien expr niet NULL is
+
+TUSSENTOTALEN
+-------------
+met group by krijg je geen tussentotalen
+in ORACLE kun je tussentotalen krijgen met ROLLOp en CUBE
+
+
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+---------------------------------------------
+HOE HAAL IK INFORMATIE UIT MEERDERE TABELLEN?
+---------------------------------------------
+
+
+SET-OPERATOREN
+--------------
+UNION
+INTERSECT
+MINUS
+
+hiermee kun je resultaten van meerdere queries combineren tot 1 resultaat
+
+query1 UNION [ALL] query2;
+     alle rijen uit q1 en q2 - dubbelen worden verwijderd behalve als je all gebruikt
+     distinct is niet mogelijk
+     alles NULL waarden zijn gelijk
+
+Q1 INTERSECT [ALL] Q2;
+     geeft enkel de rijen die in q1 en q2 voorkomen
+     dubellen worden verwijderd, behalve met ALL
+
+q1 MINUS [ALL] q2
+     geeft alle rijen die in q1 voorkomen, maar niet in q2
+     dubellen worden verwijderd, behalve met ALL
+
+
+RESULTAAT van een van de drie is STEEDS een RESULTAATTABEL
+=&gt; elke query moet zelfde aantal kolommen selecteren 
+   en elke kolom moet van hetzelfde type zijn (type-conversie functies zijn mogelijk)
+
+slechts één ; gebruiken, helemaal op het einde
+
+SORTERING is op HEEL RESULTAATTABEL
+=&gt; order by mag maar een keer, helemaal op einde
+   sortering enkel door kolomnummers
+
+je kan MEERDERE set-operatoren gebruiken, worden uitgevoerd van LINKS NAAR RECHTS
+     maar HAAKJES
+
+ELKE SAMENSTELLENDE query staat LOS van elkaar
+==&gt; SYNTACTISCH CORRECT en mogen NIET VERWIJZEN naar elkaar
+
+samenstellende queries hebben niets met elkaar te maken,
+    je kan dus verwijzen naar VERSCHILLENDE tabellen
+
+KOLOMALIASSEN enkel in EERSTE query
+
+niet alle setr-operaturen worden altijd ondersteund
+minus heet soms except
+
+
+Beperking:
+Elke rij uit de resultaattabel in steeds, in zijn geheel, terug te brengen tot één rij uit één basistabel.
+
+Tips:
+dummy-kolommen kun je gebruiken om te zorgen dat output gesorteerd is op query
+union operator kan gebruikt worden om titels aan queries te geven
+
+
+**********************************************************************************
+
+JOINS
+-----
+ENIGE manier om van MEERDERE RIJEN uit VERSCHILLENDE KOLOMEN in 1 RIJ in de RESULTAATTABEL te krijgen
+
+vertrek vanuit 1 tabel (DRIVING TABEL)
+daarachter plaats je rij van andere tabel (JOINTABEL)
+
+vb:
+atabel INNER JOIN btabel ON atabel.x = btabel.x
+
+
+TABELALIASSEN
+--
+bij joinen komt het vaak voor dat kolomnamen niet meer uniek zijn in resultaattabel
+je moet ze qualifieren om ze uniek te maken
+om dit makkelijker te maken kun je tabellen een aliasnaam geven:
+
+atabel AS a INNER JOIN btabel AS b ON a.x = b.x
+
+
+A JOIN B of B JOIN A
+--
+de volgorde maakt niet uit
+meerdere rijen in de jointabel die voldoen, dan wordt de corresponderende rij in de 
+   drijvende tabel herhaald in de resultaatatbel
+
+
+SELECTEREN UIT EEN JOIN
+--
+resultaat van een join is een tussentijdse tabel
+hieruit kun je gewenste informatie selecteren
+
+
+ZONDER JOIN CONDITIE
+--
+Het gedeelte na ON
+gebruik je dit niet dan krijg je een Cartesiaans product
+alle rijen van de join-tabel komen in aanmarking
+meestal niet gewenst, vaak niet mogelijk!
+(je kan ev. cross join gebruiken)
+
+
+JOINS MET MEER DAN TWEE TABELLEN
+--
+geen grens op aantal tabellen die je in FROM kunt joinen
+uitgevoerd van links naar rechts.
+
+
+COMPLEXERE JOIN-CONDITIES
+--
+join moet gelegd worden op meer dan een kolom ==&gt;
+vermeld dan meer dan een voorwaarde na on (gescheiden door vb AND)
+
+
+INNER EN OUTER JOINS
+--
+inner join: als rij uit cartesiaans product niet voldoet aan de where-clause valt ze weg
+            OOK het stuk uit de drijvende tabel
+
+outer join: alle rijen uit de drijvende tabel worden opgenomen
+            kolommen uit join-tabel die er niet zijn worden met NULL waarden opgenomen
+
+
+LEFT OUTER JOIN
+--
+alle rijen uit de linker (eerste tabel) komen voort
+zelfs als er geen overeenkomstige rijen in de andere tabel zijn
+
+
+RIGHT OUTER JOIN
+--
+analoog aan left
+
+
+FULL OUTETR JOIN
+--
+Alle rijen uit beide tabellen komen voor
+zelf als er geen overeenkomstige rijen zijn
+wordt niet door alle leveranciers ondersteund
+
+
+SELF JOIN
+--
+join een tabel met zichzelf, gebruik tabelalias
+
+
+
+**********************************************************************************
+
+SUBQUERIES
+----------
+zijn (bijna) volledige select-statement in de where / having / from clause
+
+SINGLE ROW SUBQUERIES
+---------------------
+geven 1 rij en meestal 1 kolom terug en kunnen gebruikt worden ipv. 1 waarde
+
+* enkel waarde wordt vervangen, er moet steeds vergelijkingsoperator zijn
+* staan tussen ronde haakjes
+* mag ook een order by bevatten
+* statement kan uit meerdere subqueries bestaan
+* subqueries zijn onafhankelijk van de hoofdquery en kan dus uit andere tabellen selecteren
+* eerst wordt de sub uitgevoerd, de verkregen waarde wordt in de hoofd ingevuld
+
+je kan soms meer dan een kolom specifieren
+
+
+MULTIPLE ROW SUBQUERIES
+------------------------
+geven meer dan 1 rij terug, je dient (NOT) IN te gebruiken
+
+some of any: er is minstens een terugkeerwaarde vd subquery waarvoor de vergelijking klopt
+all: de vergelijking moet opgaan voor alle terugkeerwaarde
+exists: de subquery moet minstens 1 rij trggeven
+not exists; de subquery mag geen enkele rij teruggeven
+
+CORRELATED SUBQUERIES
+---------------------
+de subquery maakt gebruikt van ene kolom uit een tabel uit de from clause hoofdquery (alias)
+subquery wordt uitgevoerd voor elke kandidaat rij
+
+opgelet met not in: als subquery NULL geeft, is not in altijd false (gebruik not exist)
+
+gebruik goede aliassen om het geheel leesbaar te houden!
+
+
+
+**********************************************************************************
+
+Checklist SQL
+-------------
+
+HOE WORDT EEN SELECT-STATEMENT UITGEVOERD?
+------------------------------------------
+1  bepaal de resultaattabel van de joins in de FROM-clause
+2  verwijder de rijen die niet voldoen aan de WHERE-clause
+3  maak groepen op basis van de expressies in de GROUP BY-clause
+4  verwijder de rijen die niet voldoen aan de HABING-clause
+5  voor elke rij: bereken de verschillende kolommen in de SELECT-clause
+6  Herhaal 1-5 per elementaire SELECT, en pas de SET OPERATOREN toe
+7 sorteer volgen de specificaties in de ORDER BY-clause
+
+Hoe rekening met subqueries!
+
+SYNTACTISCHE CORRECTHEID
+------------------------
+1.  Als een statistische functie (count, avg, sum,…) gebruikt wordt, is er dan ook een GROUP BY? 
+    Zo nee, is het dan juist dat het resultaat maar 1 rij bevat?
+2.  Als een statisische functie voorkomt in de SELECT-clause, 
+    komen dan de elementen zonder statistische functie allemaal voor in de GROUP BY-clause?
+3.  De WHERE-clause kan geen statistische functies bevatten!
+4.  Staat er een operator vóór de subquery?
+5.  Als er na FROM meer dan 1 tabel staat, zijn er dan voldoende join-condities?
+6.  Komt SELECT voor?
+7.  Komt FROM voor?
+8.  DISTINCT en UNION gaan niet samen!
+9.  Bij set-operators (union, minus, intersect): heeft elk apart statement evenveel kolommen in de select? 
+    Zijn alle kolommen van hetzelfde type?
+10. Zijn alle tabellen die gebruikt worden ook opgesomd in de FROM-clause ? 
+    M.a.w., worden er geen kolommen gebruikt uit tabellen die niet voorkomen in de FROM ?
+
+INHOUDELIJKE CORRECTHEID
+------------------------
+Er is geen mogelijkheid om het resultaat te controleren!
+je krijgt altijd wat jer gevraagd hebt, maar heb je wel gevraagd wat je nodig hebt?
+</pre>
 </div>
 <div created="20201013083008867" modified="20210216102342190" modifier="PDHLH" tags="[[Voorbeeldformules Spreadsheets]]" title="Zoeken met INDEX en VERGELIJKEN">
 <pre>zie [[INDEX]] en [[VERGELIJKEN]]
