@@ -257,6 +257,8 @@ Error message and password prompt
 
 <li>DEEL</li>
 
+<li>Draft of 'Nieuwe tiddler' by PDHLH</li>
+
 <li>Een (door)lopend totaal berekenen</li>
 
 <li>Een percentage verhoging - verlaging voor waarden berekenen</li>
@@ -15462,7 +15464,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div created="20210216141212766" creator="PDHLH" list="Home SQL [[Zeer beknopte uitleg van SQL]]" modified="20210216141216206" modifier="PDHLH" title="$:/StoryList">
+<div created="20210216141212766" creator="PDHLH" list="Home SQL [[Draft of 'Nieuwe tiddler' by PDHLH]] [[Zeer beknopte uitleg van SQL]]" modified="20210216141216206" modifier="PDHLH" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -16106,6 +16108,33 @@ vb
 
 =DEEL(&quot;vierkantswortel&quot;;5;4) geeft kant als resultaat</pre>
 </div>
+<div created="20210216141457269" creator="PDHLH" draft.of="Nieuwe tiddler" draft.title="Eerst iets over relationele databank" modified="20210216141531855" modifier="PDHLH" tags="SQL" title="Draft of 'Nieuwe tiddler' by PDHLH">
+<pre>WAT IS HET?
+Het zijn gegevens in een tabel.
+Het vertelt ons iets over dingen (vb. mens, lokaal)
+En eigenschappen van dingen (naam, verantwoordelijke locatie)
+Maar wat het verschil er tussen is, is een redelijk vage grens.
+
+HOE TABEL LEZEN?
+Rij het bestaat (existentie)
+Rij: beschrijvend
+     * Alleen placeholder in tabel
+     * Om goed te lezen moet je de achterliggende zin kennen
+
+Tabel gaat over 1 ding
+Kolom eigenschappen
+Rij 1 uniek exemplaar
+
+TABELKENMERKEN
+     * Unieke naam (cfr. bestanden in mappen op je harde schijf)
+     * 1 of meer kolommen
+     * Nul of meer rijen
+     * Kolom heeft unieke naam
+     * Kolom heeft gegevenstype of geen waarde
+          Geen waarde is een NULL value
+          Een lege string =/= niets (NULL)
+     * Volgorde rijen, kolommen is niet belangrijk</pre>
+</div>
 <div created="20200928182413811" modified="20210216102342189" modifier="PDHLH" tags="[[Voorbeeldformules Spreadsheets]]" title="Een (door)lopend totaal berekenen">
 <pre>||A|B|C|D|E|F|G|H|I|J|
 |1| | | TOTAAL VERKOCHT|LOPEND TOTAAL| | | | | | |
@@ -16614,14 +16643,14 @@ wist alle voorloop en vervolgspaties van een tekst</pre>
 &lt;&lt;toc-selective-expandable 'Spreadsheets' sort[title]&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210216103756071" creator="PDHLH" modified="20210216141437327" modifier="PDHLH" tags="Home" title="SQL">
+<div created="20210216103756071" creator="PDHLH" modified="20210216141445255" modifier="PDHLH" tags="Home" title="SQL">
 <pre>SQL=
 
 * NIET PROCEDURELE je beschrijft enkel de gegevens die je wilt hebben, hoe ze uit de databank worden gehaald boeit me niet
 * SET -ORIENTED je werkt met verzameling van rijen die aan een bepaalde conditie voldoen
 * TAAL heeft een (in dit geval gemakkelijke) syntax
 
-
+---
 
 &lt;&lt;list-links filter:&quot;[tag&lt;currentTiddler&gt;]&quot;&gt;&gt;</pre>
 </div>
@@ -16746,42 +16775,8 @@ gebruiken we om vreemde karakters uit een tekst te halen, vooral nuttig als we d
 <div created="20210216121015079" creator="PDHLH" modified="20210216121023213" modifier="PDHLH" tags="Websites" title="Wordpress">
 <pre>https://wordpress.com/ </pre>
 </div>
-<div created="20210216104008221" creator="PDHLH" modified="20210216104024635" modifier="PDHLH" tags="SQL" title="Zeer beknopte uitleg van SQL" type="text/plain">
-<pre>----------------------------------------
-----------------------------------------
---Eerst iets over relationele databank--
-----------------------------------------
-----------------------------------------
-
-WAT IS HET?
-Het zijn gegevens in een tabel.
-Het vertelt ons iets over dingen (vb. mens, lokaal)
-En eigenschappen van dingen (naam, verantwoordelijke locatie)
-Maar wat het verschil er tussen is, is een redelijk vage grens.
-
-HOE TABEL LEZEN?
-Rij het bestaat (existentie)
-Rij: beschrijvend
-     * Alleen placeholder in tabel
-     * Om goed te lezen moet je de achterliggende zin kennen
-
-Tabel gaat over 1 ding
-Kolom eigenschappen
-Rij 1 uniek exemplaar
-
-TABELKENMERKEN
-     * Unieke naam (cfr. bestanden in mappen op je harde schijf)
-     * 1 of meer kolommen
-     * Nul of meer rijen
-     * Kolom heeft unieke naam
-     * Kolom heeft gegevenstype of geen waarde
-          Geen waarde is een NULL value
-          Een lege string =/= niets (NULL)
-     * Volgorde rijen, kolommen is niet belangrijk
-
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+<div created="20210216104008221" creator="PDHLH" modified="20210216141542246" modifier="PDHLH" tags="SQL" title="Zeer beknopte uitleg van SQL" type="text/plain">
+<pre>
 
 HOE WORDT EEN SELECT-STATEMENT UITGEVOERD?
 ------------------------------------------
