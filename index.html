@@ -301,6 +301,8 @@ Error message and password prompt
 
 <li>Git</li>
 
+<li>Hoe alle tiddlers getagd met de huidige titel insluiten</li>
+
 <li>Hoe maak ik nieuwe template wiki met knop</li>
 
 <li>Hoe wordt een SELECT-statement uitgevoerd</li>
@@ -15794,7 +15796,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div created="20210315131522017" creator="PDHLH" list="Home TiddlyWiki" modified="20210315131522017" modifier="PDHLH" title="$:/StoryList">
+<div created="20210315131522017" creator="PDHLH" list="Home TiddlyWiki [[Hoe alle tiddlers getagd met de huidige titel insluiten]]" modified="20210315131522017" modifier="PDHLH" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -16732,6 +16734,36 @@ Alhoewel deze website op Github staat, begrijp ik niet voor 100 procent hoe dat 
 Nota's en aanverwanten kun je hieronder vinden.
 
 &lt;&lt;list-links filter:&quot;[tag&lt;currentTiddler&gt;] +[sort[title]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20210315131531051" creator="PDHLH" modified="20210315132047540" modifier="PDHLH" tags="TiddlyWiki" title="Hoe alle tiddlers getagd met de huidige titel insluiten">
+<pre>I see that I can transclude tiddlers with a specific tag using
+
+
+```HTML
+&lt;$list filter=&quot;[tag[TagNameHere]]&quot;&gt;
+! &lt;$transclude field=&quot;title&quot;/&gt;
+&lt;$transclude mode=&quot;block&quot;/&gt;
+```
+
+I can also make lists of tiddlers tagged with the current title using &lt;currentTiddler&gt;
+
+
+```HTML
+&lt;&lt;list-links filter:&quot;[tag&lt;currentTiddler&gt;] +[sort[title]]&quot;&gt;&gt;
+```
+
+En wat dan om het bovenstaande te bereiken? Dan doe je het volgende:
+
+
+```HTML
+&lt;$list filter=&quot;[tag{!!title}]&quot;&gt;
+&lt;h1&gt;&lt;$link&gt;&lt;$transclude field=&quot;title&quot;/&gt;&lt;/$link&gt;&lt;/h1&gt;
+&lt;$transclude mode=&quot;block&quot;/&gt;
+&lt;/$list&gt;
+```
+
+Gevonden op [[Stackoverflow|https://stackoverflow.com/questions/43036377/how-to-transclude-all-tiddlers-tagged-with-current-title]]
+</pre>
 </div>
 <div created="20170102114322386" creator="twee" modified="20210216095443788" modifier="PDHLH" tags="TiddlyWiki" title="Hoe maak ik nieuwe template wiki met knop">
 <pre>!Maak een template (begin met $:/)
