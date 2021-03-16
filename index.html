@@ -279,9 +279,9 @@ Error message and password prompt
 
 <li>DEEL</li>
 
-<li>Draft of 'Nieuwe tiddler' by PDHLH</li>
-
 <li>Een (door)lopend totaal berekenen</li>
+
+<li>Een lijst maken die je makkelijk kan veranderen van alle tiddlers getagd  met iets</li>
 
 <li>Een percentage verhoging - verlaging voor waarden berekenen</li>
 
@@ -15808,7 +15808,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div created="20210316124356759" creator="PDHLH" list="Home TiddlyWiki [[Draft of 'Nieuwe tiddler' by PDHLH]] Websites CSS W3.CSS" modified="20210316152345072" modifier="PDHLH" title="$:/StoryList">
+<div created="20210316124356759" creator="PDHLH" list="Home TiddlyWiki [[Een lijst maken die je makkelijk kan veranderen van alle tiddlers getagd  met iets]] Websites CSS W3.CSS" modified="20210316152345072" modifier="PDHLH" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -16678,22 +16678,6 @@ vb
 
 =DEEL(&quot;vierkantswortel&quot;;5;4) geeft kant als resultaat</pre>
 </div>
-<div created="20210316152355323" creator="PDHLH" draft.of="Nieuwe tiddler" draft.title="Een lijst maken die je makkelijk kan veranderen van alle tiddlers getagd  met iets" modified="20210316152559980" modifier="PDHLH" tags="TiddlyWiki" title="Draft of 'Nieuwe tiddler' by PDHLH">
-<pre>Normaal als je een lijst met tiddlers wilt hebben die getagd zijn met iets doe je dat als volgt:
-
-
-```
-&lt;&lt;list-links filter:&quot;[tag&lt;currentTiddler&gt;] +[sort[title]]&quot;&gt;&gt;
-```
-
-Wil je nu een lijst met alle tiddlers die je kan verschuiven in je tiddler dan doe je dat als volgt:
-
-
-```
-
-```
-</pre>
-</div>
 <div created="20200928182413811" modified="20210216102342189" modifier="PDHLH" tags="[[Voorbeeldformules Spreadsheets]]" title="Een (door)lopend totaal berekenen">
 <pre>||A|B|C|D|E|F|G|H|I|J|
 |1| | | TOTAAL VERKOCHT|LOPEND TOTAAL| | | | | | |
@@ -16706,6 +16690,24 @@ Wil je nu een lijst met alle tiddlers die je kan verschuiven in je tiddler dan d
 |8| | | | | | | | | | |
 |9| | | | | | | | | | |
 </pre>
+</div>
+<div created="20210316152355323" creator="PDHLH" modified="20210316152716633" modifier="PDHLH" tags="TiddlyWiki" title="Een lijst maken die je makkelijk kan veranderen van alle tiddlers getagd  met iets">
+<pre>Normaal als je een lijst met tiddlers wilt hebben die getagd zijn met iets doe je dat als volgt:
+
+
+```
+&lt;&lt;list-links filter:&quot;[tag&lt;currentTiddler&gt;] +[sort[title]]&quot;&gt;&gt;
+```
+
+Wil je nu een lijst met alle tiddlers die je kan verschuiven in je tiddler dan doe je dat als volgt:
+
+
+```
+&lt;&lt;list-links-draggable tiddler:&quot;CSS&quot;&gt;&gt;
+```
+
+Alle tiddlers die in de lijst van de tiddler [[CSS]] staan kun je dan in die tiddler makkelijk verplaatsen.&lt;br&gt;
+Standaard staan in die lijst de tiddlers getagd met de naam van de hooftiddler.</pre>
 </div>
 <div created="20201004141006131" modified="20210216102342189" modifier="PDHLH" tags="[[Voorbeeldformules Spreadsheets]]" title="Een percentage verhoging - verlaging voor waarden berekenen">
 <pre>||A|B|C|D|E|F|G|H|I|J|
