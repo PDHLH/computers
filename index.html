@@ -281,8 +281,6 @@ Error message and password prompt
 
 <li>DEEL</li>
 
-<li>Draft of 'Nieuwe tiddler' by PDHLH</li>
-
 <li>Een (door)lopend totaal berekenen</li>
 
 <li>Een lijst maken die je makkelijk kan veranderen van alle tiddlers getagd  met iets</li>
@@ -434,6 +432,8 @@ Error message and password prompt
 <li>W3.JS Hide en Show</li>
 
 <li>W3.JS Selectors</li>
+
+<li>W3.JS voeg een stijl toe</li>
 
 <li>Websites</li>
 
@@ -15818,7 +15818,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div created="20210317114521946" creator="PDHLH" list="$:/ControlPanel $:/plugins/tiddlywiki/highlight Home W3.JS [[W3.JS Selectors]] [[Draft of 'Nieuwe tiddler' by PDHLH]]" modified="20210317130958099" modifier="PDHLH" title="$:/StoryList">
+<div created="20210317114521946" creator="PDHLH" list="$:/ControlPanel $:/plugins/tiddlywiki/highlight Home W3.JS [[W3.JS Selectors]] [[W3.JS voeg een stijl toe]]" modified="20210317130958099" modifier="PDHLH" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -16692,9 +16692,6 @@ aantal tekens: het aantal tekens dat je met DEEL uit de tekst wilt halen.
 vb
 
 =DEEL(&quot;vierkantswortel&quot;;5;4) geeft kant als resultaat</pre>
-</div>
-<div created="20210317130951807" creator="PDHLH" draft.of="Nieuwe tiddler" draft.title="W.JS" modified="20210317130956535" modifier="PDHLH" tags="W3.JS" title="Draft of 'Nieuwe tiddler' by PDHLH">
-<pre></pre>
 </div>
 <div created="20200928182413811" modified="20210216102342189" modifier="PDHLH" tags="[[Voorbeeldformules Spreadsheets]]" title="Een (door)lopend totaal berekenen">
 <pre>||A|B|C|D|E|F|G|H|I|J|
@@ -17722,6 +17719,22 @@ de (selector) zijn de geselcteerde elementen
 Om de selectoren te kiezen gebruiken we [[CSS]]-syntax
 
 Zie voor meer info [[hier|https://www.w3schools.com/w3js/w3js_selectors.asp]]</pre>
+</div>
+<div created="20210317130951807" creator="PDHLH" modified="20210317131134908" modifier="PDHLH" tags="W3.JS" title="W3.JS voeg een stijl toe">
+<pre>
+```js
+ w3.addStyle(selector,'property','value') 
+```
+
+vb
+
+
+```HTML
+ &lt;button onclick=&quot;w3.addStyle('.city','background-color','red')&quot;&gt;Add Style&lt;/button&gt; 
+```
+
+zie ook [[hier|https://www.w3schools.com/w3js/w3js_add_style.asp]]
+</pre>
 </div>
 <div created="20210216120844955" creator="PDHLH" list="HTML CSS JavaScript Wordpress" modified="20210316194824290" modifier="PDHLH" tags="Home" title="Websites">
 <pre>Soms is het handig om een simpele website te kunnen maken.
