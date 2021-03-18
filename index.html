@@ -15822,7 +15822,7 @@ Error message and password prompt
 <div created="20210216093040833" creator="P" modified="20210216093042043" modifier="PDHL" title="$:/status/UserName">
 <pre>PDHLH</pre>
 </div>
-<div created="20210318125446798" creator="PDHLH" list="Home Websites CSS W3.CSS [[W3.CSS - Panels]] HTML [[HTML Referentie]]" modified="20210318132402332" modifier="PDHLH" title="$:/StoryList">
+<div created="20210318192935088" creator="PDHLH" list="W3.CSS [[W3.CSS - Panels]]" modified="20210318193112249" modifier="PDHLH" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210216092911999" modified="20210216092911999" title="$:/theme">
@@ -17674,8 +17674,35 @@ Volgende standaardkleuren zijn gedefinieerd:
 [[Voor voorbeelden en uitleg zie hier|https://www.w3schools.com/w3css/w3css_colors.asp]]
 </pre>
 </div>
-<div created="20210318123436265" creator="PDHLH" modified="20210318123818261" modifier="PDHLH" tags="W3.CSS" title="W3.CSS - Panels">
+<div created="20210318123436265" creator="PDHLH" modified="20210318193217995" modifier="PDHLH" tags="W3.CSS" title="W3.CSS - Panels">
 <pre>''w3-panel '' class voegt links, rechts, boven en onder 16px toe.
+
+Sluit een panel met een X
+
+
+```HTML
+&lt;div class=&quot;w3-panel w3-display-container&quot;&gt;
+  &lt;span onclick=&quot;this.parentElement.style.display='none'&quot;
+  class=&quot;w3-button w3-display-topright&quot;&gt;X&lt;/span&gt;
+  &lt;p&gt;Click on the X to close this panel.&lt;/p&gt;
+  &lt;p&gt;Click on the X to close this panel.&lt;/p&gt;
+&lt;/div&gt;
+```
+
+Open een panel 
+
+
+```HTML
+&lt;button class=&quot;w3-btn&quot; onclick=&quot;document.getElementById('id01').style.display='block'&quot;&gt;Show panel&lt;/button&gt;
+
+&lt;div id=&quot;id01&quot; class=&quot;w3-panel w3-green w3-display-container&quot; style=&quot;display:none&quot;&gt;
+  &lt;span onclick=&quot;this.parentElement.style.display='none'&quot;
+  class=&quot;w3-button w3-display-topright&quot;&gt;X&lt;/span&gt;
+  &lt;p&gt;Click on the X to close this panel.&lt;/p&gt;
+  &lt;p&gt;Click on the X to close this panel.&lt;/p&gt;
+&lt;/div&gt;
+```
+
 
 ZIe [[hier|https://www.w3schools.com/w3css/w3css_panels.asp]]</pre>
 </div>
